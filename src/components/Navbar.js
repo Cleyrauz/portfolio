@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -11,6 +11,7 @@ import {
   Typography,
   Box,
   ListItemIcon,
+  Drawer,
 } from "@mui/material";
 import {
   ArrowBack,
@@ -47,30 +48,39 @@ const menuItems = [
 ];
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const sideList = (slider) => (
+    <MenuSliderContainer component="div" onClick={() => setOpen(false)}>
+      <StyledAvatar src={avatar} alt="Cleyra Uzcategui" className="avatar" />
+      <Divider />
+      <List>
+        {menuItems.map((lsItem, key) => (
+          <ListItem button key={key} onClick={() => setOpen(false)}>
+            <ListItemIcon>{lsItem.listIcon}</ListItemIcon>
+            <ListItemText primary={lsItem.listText}></ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </MenuSliderContainer>
+  );
   return (
     <>
-      <MenuSliderContainer component="div">
+      <Box component="nav">
         <AppBar position="static" style={{ background: "#222" }}>
           <Toolbar>
-            <IconButton>
+            <IconButton onClick={() => setOpen(true)}>
               <ArrowBack style={{ color: "#9416FF" }} />
             </IconButton>
             <Typography variant="h5" style={{ color: "#ede7f6" }}>
               Portfolio
             </Typography>
+            <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+              {sideList("right")}
+            </Drawer>
           </Toolbar>
         </AppBar>
-        <StyledAvatar src={avatar} alt="Cleyra Uzcategui" className="avatar" />
-        <Divider />
-        <List>
-          {menuItems.map((lsItem, key) => (
-            <ListItem button key={key}>
-              <ListItemIcon>{lsItem.listIcon}</ListItemIcon>
-              <ListItemText primary={lsItem.listText}></ListItemText>
-            </ListItem>
-          ))}
-        </List>
-      </MenuSliderContainer>
+      </Box>
     </>
   );
 };

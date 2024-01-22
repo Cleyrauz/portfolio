@@ -2,6 +2,7 @@
   "short_name": "React App",
   "name": "Create React App Sample",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   "icons": [
     {
@@ -21,6 +22,8 @@
     }
   ],
 >>>>>>> de3ee3e (Initialize project using Create React App)
+=======
+>>>>>>> 053f534 (Adding sidebar)
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
