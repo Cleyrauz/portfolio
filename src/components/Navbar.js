@@ -22,6 +22,7 @@ import {
 } from "@mui/icons-material";
 import avatar from "../images/avatar.png";
 import { styled } from "@mui/system";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const MenuSliderContainer = styled(Box)(({ theme }) => ({
   width: "auto",
@@ -43,7 +44,7 @@ const StyledAvatar = styled(Avatar)(({ theme }) => ({
 const menuItems = [
   { listIcon: <Home />, listText: "Home" },
   { listIcon: <AssignmentInd />, listText: "Resume" },
-  { listIcon: <Apps />, listText: "Portfolio" },
+  { listIcon: <Apps />, listText: "Talks" },
   { listIcon: <ContactMail />, listText: "Contact" },
 ];
 
@@ -70,13 +71,13 @@ const Navbar = () => {
         <AppBar position="static" style={{ background: "#222" }}>
           <Toolbar>
             <IconButton onClick={() => setOpen(true)}>
-              <ArrowBack style={{ color: "#9416FF" }} />
+              <MenuIcon style={{ color: "#9416FF" }} />
             </IconButton>
             <Typography variant="h5" style={{ color: "#ede7f6" }}>
               Portfolio
             </Typography>
-            <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-              {sideList("right")}
+            <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+              {sideList("left")}
             </Drawer>
           </Toolbar>
         </AppBar>
