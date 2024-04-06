@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import { FaLinkedin } from "react-icons/fa";
 
 function FlightComponent() {
   const [value, setValue] = useState(0);

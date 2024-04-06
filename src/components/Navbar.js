@@ -23,7 +23,12 @@ import {
 import avatar from "../images/avatar.png";
 import { styled } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 
+//styled(Box): This tells MUI to create a styled version of the Box component.
+//The function passed to styled(Box) receives the theme as an argument, allowing you to access the theme values directly in your style definitions.
+//The styles are defined in an object, where properties like width, background, and height are set directly.
 const MenuSliderContainer = styled(Box)(({ theme }) => ({
   width: "auto",
   background: "#69cbdc",
@@ -33,7 +38,7 @@ const MenuSliderContainer = styled(Box)(({ theme }) => ({
     color: "#594c60",
   },
 }));
-
+//The styled API's integration with the theme is particularly useful for responsive designs or when you want to apply consistent spacing, typography, and color schemes across your app. It's a powerful feature of MUI that encourages a more coherent styling approach across your project.
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
   display: "block",
   margin: "0.5rem auto",
@@ -42,10 +47,14 @@ const StyledAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 const menuItems = [
-  { listIcon: <Home />, listText: "Home" },
-  { listIcon: <AssignmentInd />, listText: "Resume" },
-  { listIcon: <Apps />, listText: "Talks" },
-  { listIcon: <ContactMail />, listText: "Contact" },
+  { listIcon: <Home />, listText: "Home", listPath: "/" },
+  { listIcon: <AssignmentInd />, listText: "Resume", listPath: "/resume" },
+  {
+    listIcon: <RecordVoiceOverIcon />,
+    listText: "Public Speaking",
+    listPath: "/public-speaking",
+  },
+  { listIcon: <ContactMail />, listText: "Contact", listPath: "/contact" },
 ];
 
 const Navbar = () => {
@@ -57,7 +66,7 @@ const Navbar = () => {
       <Divider />
       <List>
         {menuItems.map((lsItem, key) => (
-          <ListItem button key={key} onClick={() => setOpen(false)}>
+          <ListItem button component={Link} to={lsItem.listPath}>
             <ListItemIcon>{lsItem.listIcon}</ListItemIcon>
             <ListItemText primary={lsItem.listText}></ListItemText>
           </ListItem>
@@ -69,15 +78,17 @@ const Navbar = () => {
     <>
       <Box component="nav">
         <AppBar position="static" style={{ background: "#222" }}>
-          <Toolbar>
-            <IconButton onClick={() => setOpen(true)}>
-              <MenuIcon style={{ color: "#9416FF" }} />
-            </IconButton>
+          <Toolbar
+            style={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
+          >
             <Typography variant="h5" style={{ color: "#ede7f6" }}>
               Portfolio
             </Typography>
-            <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-              {sideList("left")}
+            <IconButton onClick={() => setOpen(true)}>
+              <MenuIcon style={{ color: "#9416FF" }} />
+            </IconButton>
+            <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+              {sideList("right")}
             </Drawer>
           </Toolbar>
         </AppBar>

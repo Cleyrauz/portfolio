@@ -1,12 +1,21 @@
 import "./App.css";
-import Home from "./components";
+import Home from "./components/Home";
 import CssBaseline from "@mui/material/CssBaseline";
+import Resume from "./components/Resume";
+import PublicSpeaking from "./components/PublicSpeaking";
+import Contact from "./components/Contact";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <CssBaseline>
-        <Home></Home>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/public-speaking" element={<PublicSpeaking />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </CssBaseline>
     </>
   );
