@@ -6,17 +6,26 @@ import {
   Box,
   Button,
   styled,
+  Avatar,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import Navbar from "./Navbar";
+import avatar from "../images/avatar.png";
 
 const BoxContainer = styled(Box)(({ theme }) => ({
   background: "#233",
-  height: "100vh",
+  height: "10vh",
+  "& .avatar": {
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+    margin: theme.spacing(1),
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
 }));
 
 const BoxForm = styled(Box)(({ theme }) => ({
-  top: "50%",
+  top: "60%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   position: "absolute",
@@ -66,6 +75,11 @@ const Contact = () => {
       <Navbar></Navbar>
       <BoxContainer component="div">
         <Grid container justifyContent="center">
+          <Avatar
+            src={avatar}
+            alt="Cleyra Uzcategui"
+            className="avatar"
+          ></Avatar>
           <BoxForm component="form">
             <TypographyHeading variante="h5">
               Say "Hola" 👋🏼 and drop me a message...

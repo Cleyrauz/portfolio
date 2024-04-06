@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
+import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import Home from "@mui/icons-material/Home";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 
 function FlightComponent() {
   const [value, setValue] = useState(0);
@@ -8,13 +12,14 @@ function FlightComponent() {
     setValue(e.target.value);
   };
 
-  const handleArrivalClick = () => {
-    window.open("https://www.linkedin.com/in/cleyrauzcategui/", "_blank");
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="flight-component">
-      <span>From Portfolio</span>
+      <Box sx={{ alignItems: "center", gap: 1 }}>
+        <Typography>From</Typography>
+        <Home className="largeIcon" />
+      </Box>
       <input
         type="range"
         className="flight"
@@ -29,12 +34,18 @@ function FlightComponent() {
         <Button
           variant="contained"
           color="secondary"
-          onClick={handleArrivalClick}
+          sx={{
+            animation: `${"move"} 1s infinite, ${"box"} 1s infinite`, // Reference your keyframe names
+          }}
+          onClick={() => navigate("/public-speaking")}
         >
-          To LinkedIn
+          <span>To Talks</span>
         </Button>
       ) : (
-        <span>To LinkedIn</span>
+        <Box sx={{ alignItems: "center", gap: 1 }}>
+          <Typography>To Talks</Typography>
+          <RecordVoiceOverIcon />
+        </Box>
       )}
     </div>
   );
