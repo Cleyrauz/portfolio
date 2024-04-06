@@ -25,7 +25,6 @@ const BoxForm = styled(Box)(({ theme }) => ({
 const TypographyHeading = styled(Typography)(({ theme }) => ({
   color: "#fff",
   textAlign: "center",
-  textTransform: "uppercase",
   marginBottom: "1rem",
 }));
 
@@ -69,7 +68,7 @@ const Contact = () => {
         <Grid container justifyContent="center">
           <BoxForm component="form">
             <TypographyHeading variante="h5">
-              Say "Hola" 👋🏼 or drop me a message...
+              Say "Hola" 👋🏼 and drop me a message...
             </TypographyHeading>
             <InputField
               fullWidth={true}

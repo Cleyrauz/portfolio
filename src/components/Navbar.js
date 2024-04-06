@@ -25,6 +25,7 @@ import { styled } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import Footer from "./Footer";
 
 //styled(Box): This tells MUI to create a styled version of the Box component.
 //The function passed to styled(Box) receives the theme as an argument, allowing you to access the theme values directly in your style definitions.
@@ -89,6 +90,7 @@ const Navbar = () => {
             </IconButton>
             <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
               {sideList("right")}
+              <Footer />
             </Drawer>
           </Toolbar>
         </AppBar>

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Contact from "./Contact";
 import {
   Box,
   Grid,
@@ -17,6 +18,7 @@ import talk2 from "../images/talk2.jpeg";
 import talk3 from "../images/talk3.jpeg";
 import talk4 from "../images/talk4.jpeg";
 import talk5 from "../images/talk5.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const BoxDiv = styled(Box)(({ theme }) => ({
   background: "#233",
@@ -52,7 +54,18 @@ const TypographyTags = styled(Typography)(({ theme }) => ({
   marginRight: "5px",
 }));
 
+const StyledButton = styled(Button)({
+  textDecoration: "underline",
+  "&:hover": {
+    textDecoration: "underline",
+    fontWeight: "bold",
+    backgroundColor: "#fff",
+  },
+});
+
 const Talks = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <BoxDiv component="div">
@@ -108,12 +121,16 @@ const Talks = () => {
                 </TypographyTags>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <StyledButton
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate("/contact")}
+                >
                   Request
-                </Button>
-                <Button size="small" color="primary">
+                </StyledButton>
+                <StyledButton size="small" color="primary">
                   Find out more
-                </Button>
+                </StyledButton>
               </CardActions>
             </CardContainer>
           </Grid>
@@ -164,12 +181,16 @@ const Talks = () => {
                 </TypographyTags>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <StyledButton
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate("/contact")}
+                >
                   Request
-                </Button>
-                <Button size="small" color="primary">
+                </StyledButton>
+                <StyledButton size="small" color="primary">
                   Find out more
-                </Button>
+                </StyledButton>
               </CardActions>
             </CardContainer>
           </Grid>
@@ -223,12 +244,16 @@ const Talks = () => {
                 </TypographyTags>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <StyledButton
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate("/contact")}
+                >
                   Request
-                </Button>
-                <Button size="small" color="primary">
+                </StyledButton>
+                <StyledButton size="small" color="primary">
                   Find out more
-                </Button>
+                </StyledButton>
               </CardActions>
             </CardContainer>
           </Grid>
@@ -280,12 +305,16 @@ const Talks = () => {
                 </TypographyTags>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <StyledButton
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate("/contact")}
+                >
                   Request
-                </Button>
-                <Button size="small" color="primary">
+                </StyledButton>
+                <StyledButton size="small" color="primary">
                   Find out more
-                </Button>
+                </StyledButton>
               </CardActions>
             </CardContainer>
           </Grid>
@@ -334,12 +363,16 @@ const Talks = () => {
                 </TypographyTags>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <StyledButton
+                  size="small"
+                  color="primary"
+                  onClick={() => navigate("/contact")}
+                >
                   Request
-                </Button>
-                <Button size="small" color="primary">
+                </StyledButton>
+                <StyledButton size="small" color="primary">
                   Find out more
-                </Button>
+                </StyledButton>
               </CardActions>
             </CardContainer>
           </Grid>
