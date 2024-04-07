@@ -16,7 +16,7 @@ import DataObjectIcon from "@mui/icons-material/DataObject";
 
 const BottomNavigationContainer = styled(BottomNavigation)(({ theme }) => ({
   background: "transparent",
-  //   height: "calc(30vh - 100px)",
+  height: "calc(30vh - 100px)",
 }));
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(
@@ -31,81 +31,71 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)(
   })
 );
 
+const icons = [
+  {
+    icon: <Twitter fontSize="small" />,
+    href: "https://twitter.com/cleyrauc",
+    TooltipTitle: "Follow me on Twitter",
+    label: "Twitter",
+  },
+  {
+    icon: <Instagram fontSize="small" />,
+    href: "https://www.instagram.com/cleyrauc",
+    TooltipTitle: "Follow me on Instagram",
+    label: "Instagram",
+  },
+  {
+    icon: <LinkedIn fontSize="small" />,
+    href: "https://www.linkedin.com/in/cleyrauzcategui/",
+    TooltipTitle: "Follow me on LinkedIn",
+    label: "LinkedIn",
+  },
+  {
+    icon: <GitHubIcon fontSize="small" />,
+    href: "https://github.com/Cleyrauz",
+    TooltipTitle: "Check out my GitHub",
+    label: "GitHub",
+  },
+  {
+    icon: <DriveFileRenameOutlineIcon fontSize="small" />,
+    href: "https://medium.com/@cleyrauzctegui",
+    TooltipTitle: "Check out my Medium",
+    label: "Medium Blog",
+  },
+  {
+    icon: <PodcastsIcon fontSize="small" />,
+    href: "https://open.spotify.com/show/6JR928XSX5GiPLwDdN6HQs",
+    TooltipTitle: "Check out Hola Mundo Podcast",
+    label: "Hola Mundo Podcast",
+  },
+  {
+    icon: <GoogleIcon fontSize="small" />,
+    href: "https://gdg.community.dev/gdg-glasgow/",
+    TooltipTitle: "Check out Google Developers Group",
+    label: "Google Developers Group",
+  },
+  {
+    icon: <DataObjectIcon fontSize="small" />,
+    href: "https://www.womentechmakers.com/",
+    TooltipTitle: "Check out Women Techmakers Scotland",
+    label: "Women Techmakers Scotland",
+  },
+];
+
 const SocialMedia = () => {
   return (
     <BottomNavigationContainer>
-      <Tooltip title="Follow me on Twitter" placement="top">
-        <StyledBottomNavigationAction
-          icon={<Twitter fontSize="small" />}
-          href="https://twitter.com/cleyrauc"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </Tooltip>
-      <Tooltip title="Follow me on Instagram" placement="top">
-        <StyledBottomNavigationAction
-          icon={<Instagram fontSize="small" />}
-          href="https://www.instagram.com/cleyrauc"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="Instagram"
-        />
-      </Tooltip>
-      <Tooltip title="Follow me on LinkedIn" placement="top">
-        <StyledBottomNavigationAction
-          icon={<LinkedIn fontSize="small" />}
-          href="https://www.linkedin.com/in/cleyrauzcategui/"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="LinkedIn"
-          sx={{ padding: "0px" }}
-        />
-      </Tooltip>
-      <Tooltip title="Check out my GitHub" placement="top">
-        <StyledBottomNavigationAction
-          icon={<GitHubIcon fontSize="small" />}
-          href="https://github.com/Cleyrauz"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="GitHub"
-        />
-      </Tooltip>
-      <Tooltip title="Check out my Medium" placement="top">
-        <StyledBottomNavigationAction
-          icon={<DriveFileRenameOutlineIcon fontSize="small" />}
-          href="https://medium.com/@cleyrauzctegui"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="Medium Blog"
-        />
-      </Tooltip>
-      <Tooltip title="Check out Hola Mundo Podcast" placement="top">
-        <StyledBottomNavigationAction
-          icon={<PodcastsIcon fontSize="small" />}
-          href="https://open.spotify.com/show/6JR928XSX5GiPLwDdN6HQs"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="Hola Mundo Podcast"
-        />
-      </Tooltip>
-      <Tooltip title="Check out Google Developers Group" placement="top">
-        <StyledBottomNavigationAction
-          icon={<GoogleIcon fontSize="small" />}
-          href="https://gdg.community.dev/gdg-glasgow/"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="Google Developers Group"
-        />
-      </Tooltip>
-      <Tooltip title="Check out Women Techmakers Scotland" placement="top">
-        <StyledBottomNavigationAction
-          icon={<DataObjectIcon fontSize="small" />}
-          href="https://www.womentechmakers.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          label="Women Techmakers Scotland"
-        />
-      </Tooltip>
+      {icons.map((icon, index) => (
+        <Tooltip title={icon.TooltipTitle} placement="top">
+          <StyledBottomNavigationAction
+            icon={icon.icon}
+            href={icon.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            label={icon.label}
+          />
+        </Tooltip>
+      ))}
     </BottomNavigationContainer>
   );
 };
