@@ -4,6 +4,7 @@ import Header from "./Header";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import SocialMediaBar from "./SocialMediaBar";
 
 const Home = () => {
   const particlesInit = useCallback(async (engine) => {
@@ -83,6 +84,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <SocialMediaBar></SocialMediaBar>
       <Header />
       <Particles
         id="tsparticles"

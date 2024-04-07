@@ -112,7 +112,7 @@ const Header = () => {
       <Avatar src={avatar} alt="Cleyra Uzcategui" className="avatar"></Avatar>
       <Typography variant="h4" className="title">
         <ReactTyped
-          strings={[" Hi, I'm Cleyra Uzcategui! 👋🏼"]}
+          strings={[" Hi, I'm Cleyra Uzcategui!"]}
           typeSpeed={40}
         ></ReactTyped>
       </Typography>
@@ -131,11 +131,7 @@ const Header = () => {
         </p>
       </Typography>
       <FlightComponent />
-      <Button
-        className="button"
-        color="secondary"
-        onClick={() => navigate("/resume")}
-      >
+      <Button className="button" onClick={() => navigate("/resume")}>
         <span>My Resume</span>
         <i></i>
       </Button>

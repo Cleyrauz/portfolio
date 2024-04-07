@@ -23,7 +23,7 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)(
   })
 );
 
-const Footer = () => {
+const FooterNavbar = () => {
   return (
     <BottomNavigationContainer>
       <StyledBottomNavigationAction
@@ -47,4 +47,4 @@ const Footer = () => {
     </BottomNavigationContainer>
   );
 };
-export default Footer;
+export default FooterNavbar;

@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Home from "@mui/icons-material/Home";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 function FlightComponent() {
   const [value, setValue] = useState(0);
@@ -35,11 +36,13 @@ function FlightComponent() {
           variant="contained"
           color="secondary"
           sx={{
-            animation: `${"move"} 1s infinite, ${"box"} 1s infinite`, // Reference your keyframe names
+            animation: `${"move"} 1s infinite, ${"box"} 1s infinite`,
+            backgroundColor: "#9416fe",
           }}
           onClick={() => navigate("/public-speaking")}
         >
           <span>To Talks</span>
+          <FlightTakeoffIcon />
         </Button>
       ) : (
         <Box sx={{ alignItems: "center", gap: 1 }}>

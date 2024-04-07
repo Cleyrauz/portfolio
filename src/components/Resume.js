@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import Navbar from "./Navbar";
+import SocialMediaBar from "./SocialMediaBar";
 
 //styled(Box): This tells MUI to create a styled version of the Box component.
 //The function passed to styled(Box) receives the theme as an argument, allowing you to access the theme values directly in your style definitions.
@@ -13,7 +14,6 @@ const StyledHeadingBox = styled(Box)(({ theme }) => ({
 const TypographyHeading = styled(Typography)(({ theme }) => ({
   color: "#9416fe",
   padding: "3rem 0",
-  textTransform: "uppercase",
 }));
 
 const BoxTimeLine = styled(Box)(({ theme }) => ({
@@ -211,8 +211,9 @@ const Resume = () => {
   return (
     <>
       <Navbar />
+      <SocialMediaBar></SocialMediaBar>
       <StyledHeadingBox component="header">
-        <TypographyHeading variant="h4" align="center">
+        <TypographyHeading variant="h2" align="center">
           Experience
         </TypographyHeading>
         <BoxTimeLine component="div">
