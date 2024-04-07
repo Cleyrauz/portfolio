@@ -23,27 +23,33 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)(
   })
 );
 
+const icons = [
+  {
+    icon: <Twitter fontSize="small" />,
+    href: "https://twitter.com/cleyrauc",
+  },
+  {
+    icon: <Instagram fontSize="small" />,
+    href: "https://www.instagram.com/cleyrauc",
+  },
+  {
+    icon: <LinkedIn fontSize="small" />,
+    href: "https://www.linkedin.com/in/cleyrauzcategui/",
+  },
+];
+
 const FooterNavbar = () => {
   return (
     <BottomNavigationContainer>
-      <StyledBottomNavigationAction
-        icon={<Twitter />}
-        href="https://twitter.com/cleyrauc"
-        target="_blank"
-        rel="noopener noreferrer"
-      />
-      <StyledBottomNavigationAction
-        icon={<Instagram />}
-        href="https://www.instagram.com/cleyrauc"
-        target="_blank"
-        rel="noopener noreferrer"
-      />
-      <StyledBottomNavigationAction
-        icon={<LinkedIn />}
-        href="https://www.linkedin.com/in/cleyrauzcategui/"
-        target="_blank"
-        rel="noopener noreferrer"
-      />
+      {icons.map((icon, index) => (
+        <StyledBottomNavigationAction
+          icon={icon.icon}
+          href={icon.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+      ))}
+      ;
     </BottomNavigationContainer>
   );
 };
