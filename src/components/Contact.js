@@ -11,7 +11,6 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import Navbar from "./Navbar";
 import avatar from "../images/avatar.png";
-import SocialMediaBar from "./SocialMediaBar";
 
 const BoxContainer = styled(Box)(({ theme }) => ({
   "& .avatar": {
@@ -72,7 +71,6 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <SocialMediaBar></SocialMediaBar>
       <BoxContainer component="div">
         <Grid container justifyContent="center">
           <Avatar

@@ -10,22 +10,24 @@ import {
 } from "@mui/material";
 import Navbar from "./Navbar";
 import avatar from "../images/avatar.png";
-import SocialMediaBar from "./SocialMediaBar";
 import SocialMedia from "./SocialMedia";
 
 const StyledHeadingBox = styled(Box)(({ theme }) => ({
   background: "#233",
-  //   background: "fff",
+  padding: theme.spacing(2),
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(1), // Adjust padding on smaller screens
+  },
 }));
 
 const BoxNumbers = styled(Box)(({ theme }) => ({
-  "& .funFacts": {
-    display: "flex",
-    flexWrap: "wrap",
-    listStyle: "none",
-    paddingLeft: "0",
-    color: "black",
-  },
+  // "& .funFacts": {
+  //   display: "flex",
+  //   flexWrap: "wrap",
+  //   listStyle: "none",
+  //   paddingLeft: "0",
+  //   color: "black",
+  // },
 
   "& .funFacts li:nth-child(1)": {
     background: "#69cbdc",
@@ -39,42 +41,85 @@ const BoxNumbers = styled(Box)(({ theme }) => ({
   "& .funFacts li:nth-child(4)": {
     background: "#fad40a",
   },
-  "& .funFacts li span.number": {
-    fontSize: "8rem",
-    fontSize: "clamp(2.5rem, 10vw, 8rem)",
-  },
-  [theme.breakpoints.up("700")]: {
-    "& .fun-facts li": {
-      minWidth: "auto",
-      height: "25vw",
-    },
+  // "& .funFacts li span.number": {
+  //   fontSize: "8rem",
+  //   fontSize: "clamp(2.5rem, 10vw, 8rem)",
+  // },
+  // [theme.breakpoints.up("700")]: {
+  //   "& .fun-facts li": {
+  //     minWidth: "auto",
+  //     height: "25vw",
+  //   },
+  // },
+  // "& .funFacts li": {
+  //   flex: "1",
+  //   flexDirection: "column",
+  //   // minWidth: "50%",
+  //   height: "25vw",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   textAlign: "center",
+  //   margin: "0",
+  // },
+  "& .funFacts": {
+    display: "flex",
+    flexWrap: "wrap",
+    listStyle: "none",
+    paddingLeft: "0",
+    color: "black",
   },
   "& .funFacts li": {
-    flex: "1",
+    flex: "1 1 200px", // Make sure items can grow and shrink but start at 200px wide
     flexDirection: "column",
-    // minWidth: "50%",
-    height: "25vw",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    margin: "0",
+    // margin: theme.spacing(1), // Use theme spacing for consistent spacing
+    height: "auto", // Make height auto to accommodate content
+  },
+  "& .funFacts li span.number": {
+    fontSize: "clamp(2.5rem, 8vw, 8rem)", // Responsive font size
   },
 }));
 
 const TypographyBody = styled(Typography)(({ theme }) => ({
   fontFamily: "Raleway, Helvetica, Arial, sans-serif",
-  fontSize: "18px",
-  lineHeight: "31px",
+  fontSize: "clamp(1rem, 2vw, 18px)", // Responsive font size
+  lineHeight: "1.75",
   color: "#a4aaaa",
   textAlign: "left",
+  padding: theme.spacing(1), // Add padding
 }));
+
+const list = [
+  {
+    number: "11",
+    emoji: "🎤",
+    funFact: "Conferences as speaker",
+  },
+  {
+    number: "13",
+    emoji: "🧳",
+    funFact: "Countries visited",
+  },
+  {
+    number: "80",
+    emoji: "🪴",
+    funFact: "Indoor plants",
+  },
+  {
+    number: "∞",
+    emoji: "☕",
+    funFact: "Coffee cups drunk",
+  },
+];
 
 const About = () => {
   return (
     <>
       <Navbar></Navbar>
-      <SocialMediaBar></SocialMediaBar>
       <StyledHeadingBox component="div">
         <Grid container justifyContent="center">
           <Box
@@ -98,11 +143,6 @@ const About = () => {
             >
               About me
             </Typography>
-            <TypographyBody variant="body1">
-              I was born in Venezuela, on the enchanting Caribbean island of
-              Margarita, exactly one day after the fall of the Berlin Wall (do
-              the math 😉).
-            </TypographyBody>
             <TypographyBody variant="body1">
               In the capital, Caracas, I began my studies in Information Science
               at the Universidad Central de Venezuela. I also pursued a few
@@ -157,22 +197,15 @@ const About = () => {
         </Grid>
         <BoxNumbers>
           <ul className="funFacts">
-            <li>
-              <span class="number">11🎤</span>
-              <span>Conferences as speaker</span>
-            </li>
-            <li>
-              <span class="number">13🧳</span>
-              <span>Countries visited</span>
-            </li>
-            <li>
-              <span class="number">80🪴</span>
-              <span>Indoor plants</span>
-            </li>
-            <li>
-              <span class="number">∞☕</span>
-              <span>Coffee cups drunk</span>
-            </li>
+            {list.map((item, index) => (
+              <li key={index}>
+                <span className="number">
+                  {item.number}
+                  {item.emoji}
+                </span>
+                <span>{item.funFact}</span>
+              </li>
+            ))}
           </ul>
         </BoxNumbers>
       </StyledHeadingBox>

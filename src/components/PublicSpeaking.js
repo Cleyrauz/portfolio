@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import Navbar from "./Navbar";
 import Contact from "./Contact";
-import SocialMediaBar from "./SocialMediaBar";
 import {
   Box,
   Grid,
@@ -171,7 +170,6 @@ const Talks = () => {
     <>
       <BoxDiv component="div">
         <Navbar />
-        <SocialMediaBar></SocialMediaBar>
         <Grid container justify="center">
           {talks.map((talk, index) => (
             <Grid item xs={12} sm={8} md={6}>
