@@ -9,7 +9,7 @@ import {
   Link,
 } from "@mui/material";
 import Navbar from "./Navbar";
-import avatar from "../images/avatar.png";
+import profile from "../images/profile-pic.png";
 import SocialMedia from "./SocialMedia";
 
 const StyledHeadingBox = styled(Box)(({ theme }) => ({
@@ -21,13 +21,13 @@ const StyledHeadingBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxNumbers = styled(Box)(({ theme }) => ({
-  // "& .funFacts": {
-  //   display: "flex",
-  //   flexWrap: "wrap",
-  //   listStyle: "none",
-  //   paddingLeft: "0",
-  //   color: "black",
-  // },
+  "& .funFacts": {
+    display: "flex",
+    flexWrap: "wrap",
+    listStyle: "none",
+    paddingLeft: "0",
+    color: "black",
+  },
 
   "& .funFacts li:nth-child(1)": {
     background: "#69cbdc",
@@ -41,27 +41,27 @@ const BoxNumbers = styled(Box)(({ theme }) => ({
   "& .funFacts li:nth-child(4)": {
     background: "#fad40a",
   },
-  // "& .funFacts li span.number": {
-  //   fontSize: "8rem",
-  //   fontSize: "clamp(2.5rem, 10vw, 8rem)",
-  // },
-  // [theme.breakpoints.up("700")]: {
-  //   "& .fun-facts li": {
-  //     minWidth: "auto",
-  //     height: "25vw",
-  //   },
-  // },
-  // "& .funFacts li": {
-  //   flex: "1",
-  //   flexDirection: "column",
-  //   // minWidth: "50%",
-  //   height: "25vw",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   textAlign: "center",
-  //   margin: "0",
-  // },
+  "& .funFacts li span.number": {
+    fontSize: "8rem",
+    fontSize: "clamp(2.5rem, 10vw, 8rem)",
+  },
+  [theme.breakpoints.up("700")]: {
+    "& .fun-facts li": {
+      minWidth: "auto",
+      height: "25vw",
+    },
+  },
+  "& .funFacts li": {
+    flex: "1",
+    flexDirection: "column",
+    minWidth: "50%",
+    height: "50vw",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    margin: "0",
+  },
   "& .funFacts": {
     display: "flex",
     flexWrap: "wrap",
@@ -80,7 +80,7 @@ const BoxNumbers = styled(Box)(({ theme }) => ({
     height: "auto", // Make height auto to accommodate content
   },
   "& .funFacts li span.number": {
-    fontSize: "clamp(2.5rem, 8vw, 8rem)", // Responsive font size
+    fontSize: "clamp(1.25rem, 4vw, 4rem)", // Responsive font size
   },
 }));
 
@@ -95,12 +95,12 @@ const TypographyBody = styled(Typography)(({ theme }) => ({
 
 const list = [
   {
-    number: "11",
+    number: "13",
     emoji: "🎤",
     funFact: "Conferences as speaker",
   },
   {
-    number: "13",
+    number: "15",
     emoji: "🧳",
     funFact: "Countries visited",
   },
@@ -130,7 +130,7 @@ const About = () => {
             maxWidth={"800px"}
           >
             <Avatar
-              src={avatar}
+              src={profile}
               alt="Cleyra Uzcategui"
               sx={{ width: 120, height: 120 }}
               className="avatar"
@@ -144,11 +144,15 @@ const About = () => {
               About me
             </Typography>
             <TypographyBody variant="body1">
-              In the capital, Caracas, I began my studies in Information Science
-              at the Universidad Central de Venezuela. I also pursued a few
-              semesters of Journalism at the same institution. After completing
-              my studies, I decided to embrace the adventure of moving to Europe
-              in 2015.
+              I was born in the 1980s, in a Caribbean Island called Margarita,
+              just one month before the decade ended.
+            </TypographyBody>
+            <TypographyBody variant="body1">
+              In the capital of Venezuela, Caracas, I began my studies in
+              Information Science at the Universidad Central de Venezuela. I
+              also pursued a few semesters of Journalism at the same
+              institution. After completing my studies, I decided to embrace the
+              adventure of moving to Europe in 2015.
             </TypographyBody>
             <TypographyBody variant="body1">
               In 2017, I landed my first tech job as a video game localization
@@ -163,8 +167,12 @@ const About = () => {
               interests into my livelihood.
             </TypographyBody>
             <TypographyBody variant="body1">
+              Skilled in cloud technologies, nowdays I apply my skills at JP
+              Morgan & Chase to enhance digital infrastructure and solutions.
+            </TypographyBody>
+            <TypographyBody variant="body1">
               In my spare time, I enjoy taking care of my indoor plants,
-              organising meet-ups and events with
+              mentoring and organising meet-ups with
               <Link
                 href="https://www.womentechmakers.com/"
                 target="_blank"
@@ -182,8 +190,8 @@ const About = () => {
               >
                 Google Developers Group
               </Link>
-              , running with my husband on a beautiful beach in Alicante, Spain,
-              and occasionally, you might find me hiking Scottish Munros.
+              , running with my husband on a beautiful beach in Spain, and
+              occasionally, you might find me hiking Scottish Munros.
             </TypographyBody>
           </Box>
           <SocialMedia></SocialMedia>
@@ -201,7 +209,7 @@ const About = () => {
               <li key={index}>
                 <span className="number">
                   {item.number}
-                  {item.emoji}
+                  <span sx={{ fontSize: "0.75em" }}>{item.emoji}</span>
                 </span>
                 <span>{item.funFact}</span>
               </li>
