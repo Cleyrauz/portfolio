@@ -104,7 +104,7 @@ const talks = [
     presentations: [
       "International Women's Day Scotland 2023",
       "International Women's Day Mt. Kenya Region 2023",
-      "Devfest Alps 2023",
+      "Devfest Alps 2023, Italy",
       "International Women's Day Barcelona 2024",
     ],
   },
